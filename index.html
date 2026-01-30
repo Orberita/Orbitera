@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="business.png">
-    <title>Orbitera</title>
+    <title>Split Layout</title>
     <style>
         * {
             margin: 0;
@@ -171,11 +170,12 @@
             cursor: move;
             user-select: none;
             border: 2px solid transparent;
-            min-width: 100px;
             font-size: 16px;
             color: #000000;
             display: inline-block;
             font-weight: bold;
+            width: fit-content;
+            max-width: 100%;
         }
 
         .draggable-text.selected {
@@ -344,6 +344,9 @@
             
             // Remove any existing color
             selectedTextBox.style.color = '';
+            
+            // Reset width to auto so gradient fits text
+            selectedTextBox.style.width = 'auto';
             
             // Set gradient background
             if (gradientType === 'linear') {
@@ -815,7 +818,7 @@
             textBox.textContent = 'Double-click to edit';
             textBox.style.left = '100px';
             textBox.style.top = '100px';
-            textBox.style.width = '150px';
+            textBox.style.width = 'auto';
             textBox.style.height = 'auto';
             textBox.style.fontSize = '16px';
             textBox.style.color = '#000000';
